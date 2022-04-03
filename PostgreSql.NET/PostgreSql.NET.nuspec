@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>PostgreSql.NET</id>
+    <version>$POSTGRESQL$</version>
+    <authors>Timothy R. McNealy</authors>
+    <owners>Timothy R. McNealy</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/trmcnealy/PostgreSql.NET</projectUrl>
+    <repository type="git" url="https://github.com/trmcnealy/PostgreSql.NET.git"/>
+    <icon>nindra.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PostgreSql .NET</description>
+    <releaseNotes></releaseNotes>
+    <copyright>© Timothy R. McNealy</copyright>
+    <tags></tags>
+      <dependencies>
+          <group targetFramework="net6.0">
+              <dependency id="Apache.Thrift.NET"
+                          version="$APACHE_THRIFT$"/>
+              <dependency id="PlatformApi"
+                          version="$PLATFORMAPI$"/>
+              <dependency id="native.PostgreSql.NET"
+                          version="$POSTGRESQL$"/>
+              <dependency id="Microsoft.Data.Analysis"
+                          version="0.19.0"/>
+              <dependency id="System.Runtime.Serialization.Primitives"
+                          version="4.3.0"/>
+              <dependency id="System.ServiceModel.Primitives"
+                          version="4.9.0"/>
+          </group>
+      </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\TFS_Sources\EngineeringTools\Web\trmcnealy.github.io\Assets\nindra.png"
+          target=""/>
+
+    <file src="D:\TFS_Sources\EngineeringTools\bin\Release\AnyCPU\net6.0\PostgreSql.NET.pdb"
+          target="lib\net6.0"/>
+
+    <file src="D:\TFS_Sources\EngineeringTools\bin\Release\AnyCPU\net6.0\PostgreSql.NET.dll"
+          target="lib\net6.0"/>
+
+  </files>
+</package>

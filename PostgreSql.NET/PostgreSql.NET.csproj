@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="$([MSBuild]::GetPathOfFileAbove(GlobalVersioning.props))" />
+
+    <PropertyGroup>
+        <LangVersion>10.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <Version>$(POSTGRESQL_VERSION)</Version>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>PostgreSql</RootNamespace>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <PackageIcon>nindra.png</PackageIcon>
+        <Authors>Timothy R. McNealy</Authors>
+        <Company>Timothy R. McNealy</Company>
+        <Copyright>© Timothy R. McNealy</Copyright>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/trmcnealy/PostgreSql.NET</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/trmcnealy/PostgreSql.NET</RepositoryUrl>
+        <PackageId>PostgreSql.NET</PackageId>
+        <Configurations>Debug;Release;Mixed</Configurations>
+        <Platforms>AnyCPU;x64</Platforms>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IncludeMicrosoftAttributes>true</IncludeMicrosoftAttributes>
+        <IncludeNativeTypeNameAttribute>true</IncludeNativeTypeNameAttribute>
+    </PropertyGroup>
+
+    <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))\Artifacts.props" Condition="'$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))' != '' " />
+
+    <PropertyGroup>
+        <NuspecFile>PostgreSql.NET.nuspec</NuspecFile> 
+        <NuspecProperties>$(NUGET_PROPERTIES)</NuspecProperties>
+        <!--<GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">false</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>-->
+        <PackageOutputPath Condition="'$(PACKAGE_CACHE)'!=''">$(PACKAGE_CACHE)</PackageOutputPath>
+        <PackageOutputPath Condition="'$(PACKAGE_CACHE)'==''">$(OutputPath)</PackageOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="PostgreSql\DbConnection.cs" />
+        <Compile Remove="PostgreSql\v12.5\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="PostgreSql.NET.csproj.DotSettings" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="D:\TFS_Sources\EngineeringTools\Web\trmcnealy.github.io\Assets\nindra.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="PostgreSql.NET.nuspec" />
+        <None Include="PostgreSql\DbConnection.cs" />
+        <None Include="PostgreSql\v12.5\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Apache.Thrift.NET" Version="$(APACHE_THRIFT_VERSION)" />
+        <PackageReference Include="PlatformApi" Version="$(PLATFORMAPI_VERSION)" />
+        <PackageReference Include="native.PostgreSql.NET" Version="$(POSTGRESQL_VERSION)" />
+        <PackageReference Include="Microsoft.Data.Analysis" Version="0.19.0" />
+        <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
+        <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
+        
+        <PackageReference Include="NativeStrings" Version="1.0.0" />
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="rd /s /q C:\Users\trmcnealy\.nuget\packages\postgresql.net" />
+    </Target>
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+      <Exec Command="rd /s /q C:\Users\trmcnealy\.nuget\packages\native.postgresql.net" />
+    </Target>
+
+</Project>

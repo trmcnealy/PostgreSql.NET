@@ -1,0 +1,222 @@
+Microsoft (R) COFF/PE Dumper Version 14.31.31104.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file libpq.dll
+
+File Type: DLL
+
+  Section contains the following exports for libpq.dll
+
+    00000000 characteristics
+           0 time date stamp
+        0.00 version
+           0 ordinal base
+         187 number of functions
+         186 number of names
+
+    ordinal hint RVA      name
+
+         17    0 0000B200 PQbackendPID
+         36    1 000136E0 PQbinaryTuples
+        122    2 0000A100 PQcancel
+         48    3 0000E770 PQclear
+         72    4 0000B360 PQclientEncoding
+         42    5 00013DC0 PQcmdStatus
+         44    6 00013FB0 PQcmdTuples
+          3    7 000058D0 PQconndefaults
+         79    8 00006190 PQconnectPoll
+         80    9 000037A0 PQconnectStart
+        157    A 00003210 PQconnectStartParams
+          1    B 00003750 PQconnectdb
+        156    C 000031B0 PQconnectdbParams
+        140    D 0000B290 PQconnectionNeedsPassword
+        138    E 0000B310 PQconnectionUsedPassword
+        165    F 0000A820 PQconninfo
+         78   10 000042D0 PQconninfoFree
+        152   11 0000A6F0 PQconninfoParse
+         26   12 00011860 PQconsumeInput
+        142   13 0000EC20 PQcopyResult
+          7   14 0000AAF0 PQdb
+        179   15 00028660 PQdefaultSSLKeyPassHook_OpenSSL
+        134   16 000126B0 PQdescribePortal
+        133   17 000124A0 PQdescribePrepared
+         51   18 0001B530 PQdisplayTuples
+        112   19 000193C0 PQdsplen
+        128   1A 00024D20 PQencryptPassword
+        172   1B 00024DE0 PQencryptPasswordConn
+         31   1C 00012DF0 PQendcopy
+        180   1D 00012FB0 PQenterPipelineMode
+         73   1E 000193F0 PQenv2encoding
+         15   1F 0000B110 PQerrorMessage
+         89   20 00015600 PQescapeBytea
+        127   21 000150B0 PQescapeByteaConn
+        155   22 00015070 PQescapeIdentifier
+        154   23 00014B90 PQescapeLiteral
+         88   24 00014B40 PQescapeString
+        126   25 000147B0 PQescapeStringConn
+         21   26 00011FD0 PQexec
+        101   27 00012260 PQexecParams
+        110   28 000123E0 PQexecPrepared
+        181   29 00013050 PQexitPipelineMode
+        109   2A 00013BC0 PQfformat
+          4   2B 00003720 PQfinish
+        151   2C 00022CE0 PQfireResultCreateEvents
+         81   2D 00013320 PQflush
+         41   2E 00013D40 PQfmod
+         32   2F 00012E30 PQfn
+         37   30 00013720 PQfname
+         38   31 000137A0 PQfnumber
+        121   32 0000A0D0 PQfreeCancel
+         87   33 00014790 PQfreeNotify
+         95   34 00014770 PQfreemem
+         40   35 00013CC0 PQfsize
+        107   36 00013AC0 PQftable
+        108   37 00013B40 PQftablecol
+         39   38 00013C40 PQftype
+        120   39 00009E20 PQgetCancel
+        105   3A 00012BB0 PQgetCopyData
+         24   3B 00011980 PQgetResult
+        178   3C 00028720 PQgetSSLKeyPassHook_OpenSSL
+        176   3D 00020880 PQgetgssctx
+         47   3E 00014480 PQgetisnull
+         46   3F 000143E0 PQgetlength
+         27   40 00012C60 PQgetline
+         29   41 00012D00 PQgetlineAsync
+        114   42 000283F0 PQgetssl
+         45   43 00014290 PQgetvalue
+        175   44 00020890 PQgssEncInUse
+         10   45 0000AC20 PQhost
+        174   46 0000AD80 PQhostaddr
+        153   47 00020360 PQinitOpenSSL
+        124   48 00020330 PQinitSSL
+        147   49 00022A70 PQinstanceData
+         25   4A 000118F0 PQisBusy
+         82   4B 00014740 PQisnonblocking
+        129   4C 00014760 PQisthreadsafe
+        160   4D 00017960 PQlibVersion
+         49   4E 0000E200 PQmakeEmptyPGresult
+         64   4F 00019350 PQmblen
+        185   50 00019380 PQmblenBounded
+         35   51 000136A0 PQnfields
+         22   52 00012790 PQnotifies
+        131   53 00014500 PQnparams
+         34   54 00013660 PQntuples
+         43   55 00013E00 PQoidStatus
+         71   56 00013ED0 PQoidValue
+         13   57 0000AEB0 PQoptions
+         97   58 0000AFA0 PQparameterStatus
+        132   59 00014540 PQparamtype
+          9   5A 0000AB70 PQpass
+        158   5B 00003850 PQping
+        159   5C 000035D0 PQpingParams
+        183   5D 0000B250 PQpipelineStatus
+        182   5E 000131A0 PQpipelineSync
+         11   5F 0000ADF0 PQport
+        118   60 00012340 PQprepare
+         50   61 000197A0 PQprint
+         52   62 0001B9A0 PQprintTuples
+         98   63 0000B050 PQprotocolVersion
+        103   64 00012840 PQputCopyData
+        104   65 000129D0 PQputCopyEnd
+         28   66 00012D50 PQputline
+         30   67 00012DA0 PQputnbytes
+        146   68 00022670 PQregisterEventProc
+        125   69 0000B780 PQregisterThreadLock
+          6   6A 0000A590 PQrequestCancel
+         66   6B 00013470 PQresStatus
+          5   6C 00009C30 PQreset
+         83   6D 00009D50 PQresetPoll
+         84   6E 00009D00 PQresetStart
+        145   6F 0000EB60 PQresultAlloc
+        106   70 000135D0 PQresultErrorField
+         65   71 000134C0 PQresultErrorMessage
+        149   72 00022C10 PQresultInstanceData
+        173   73 0000F9D0 PQresultMemorySize
+        150   74 00022B40 PQresultSetInstanceData
+         33   75 00013430 PQresultStatus
+        171   76 00013510 PQresultVerboseErrorMessage
+        136   77 00012760 PQsendDescribePortal
+        135   78 00012730 PQsendDescribePrepared
+        186   79 00013340 PQsendFlushRequest
+        119   7A 000110D0 PQsendPrepare
+         23   7B 000103A0 PQsendQuery
+        102   7C 00010810 PQsendQueryParams
+        111   7D 00011650 PQsendQueryPrepared
+        113   7E 0000B0B0 PQserverVersion
+         85   7F 0000B3B0 PQsetClientEncoding
+        170   80 0000B580 PQsetErrorContextVisibility
+         99   81 0000B520 PQsetErrorVerbosity
+        148   82 000229A0 PQsetInstanceData
+         20   83 0000B660 PQsetNoticeProcessor
+        100   84 0000B5E0 PQsetNoticeReceiver
+        143   85 0000E950 PQsetResultAttrs
+        177   86 00028730 PQsetSSLKeyPassHook_OpenSSL
+        161   87 00011780 PQsetSingleRowMode
+        184   88 00020970 PQsetTraceFlags
+          2   89 00005D40 PQsetdbLogin
+         86   8A 00014640 PQsetnonblocking
+        144   8B 0000EFB0 PQsetvalue
+         16   8C 0000B190 PQsocket
+        169   8D 000284B0 PQsslAttribute
+        168   8E 000284A0 PQsslAttributeNames
+        166   8F 000202F0 PQsslInUse
+        167   90 00028430 PQsslStruct
+         14   91 0000AEF0 PQstatus
+         18   92 000208A0 PQtrace
+         96   93 0000AF30 PQtransactionStatus
+         12   94 0000AE70 PQtty
+         94   95 00015650 PQunescapeBytea
+         19   96 00020900 PQuntrace
+          8   97 0000AB30 PQuser
+         74   98 000234E0 appendBinaryPQExpBuffer
+         91   99 000233F0 appendPQExpBuffer
+         68   9A 00023560 appendPQExpBufferChar
+         75   9B 00023490 appendPQExpBufferStr
+         77   9C 00022E10 createPQExpBuffer
+         76   9D 00022EF0 destroyPQExpBuffer
+        130   9E 00022FF0 enlargePQExpBuffer
+         69   9F 00022E50 initPQExpBuffer
+         54   A0 00016380 lo_close
+         58   A1 00016DA0 lo_creat
+        123   A2 00016E70 lo_create
+         62   A3 00017620 lo_export
+         61   A4 00017260 lo_import
+        141   A5 000175F0 lo_import_with_oid
+         57   A6 00016A50 lo_lseek
+        162   A7 00016B90 lo_lseek64
+         53   A8 00015AE0 lo_open
+         55   A9 000167A0 lo_read
+         59   AA 00016F80 lo_tell
+        163   AB 00017050 lo_tell64
+        137   AC 00016450 lo_truncate
+        164   AD 000165F0 lo_truncate64
+         60   AE 00017190 lo_unlink
+         56   AF 000168F0 lo_write
+        115   B0 000297F0 pg_char_to_encoding
+         92   B1 00029B20 pg_encoding_to_char
+         93   B2 0002BA90 pg_utf_mblen
+        116   B3 000299A0 pg_valid_server_encoding
+        139   B4 00029A10 pg_valid_server_encoding_id
+         63   B5 002171C0 pgresStatus
+        117   B6 00022640 pqsignal
+         90   B7 000231F0 printfPQExpBuffer
+         70   B8 00022F90 resetPQExpBuffer
+         67   B9 00022F20 termPQExpBuffer
+
+  Summary
+
+        1000 .buildid
+        A000 .data
+        2000 .debug_abbrev
+        5000 .debug_info
+        3000 .debug_line
+        3000 .debug_loc
+        1000 .debug_ranges
+        4000 .debug_str
+        E000 .pdata
+       A6000 .rdata
+        7000 .reloc
+        1000 .rsrc
+      214000 .text
+        1000 .tls

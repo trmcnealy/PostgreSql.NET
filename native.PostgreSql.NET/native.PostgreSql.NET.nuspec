@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>native.PostgreSql.NET</id>
+    <version>13.6.0</version>
+    <authors>Timothy R. McNealy</authors>
+    <owners>Timothy R. McNealy</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>elephant.png</icon>
+    <projectUrl>https://github.com/trmcnealy/PostgreSql.NET</projectUrl>
+    <description>PostgreSql .NET</description>
+    <releaseNotes></releaseNotes>
+    <copyright>© Timothy R. McNealy</copyright>
+    <repository type="git" url="https://github.com/trmcnealy/PostgreSql.NET.git" />
+  </metadata>
+  <files>
+    <file src="elephant.png"
+          target=""/>
+    <file src="libpq.dll" target="runtimes/win-x64/native"/>
+  </files>
+</package>

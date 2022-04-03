@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="$([MSBuild]::GetPathOfFileAbove(GlobalVersioning.props))" />
+
+    <PropertyGroup>
+        <Platforms>AnyCPU;x86;x64</Platforms>
+        <OutputType>Exe</OutputType>
+        <LangVersion>10.0</LangVersion>
+        <TargetFramework>net6.0</TargetFramework>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>enable</Nullable>
+        <Configurations>Debug;Release;Mixed</Configurations>
+    </PropertyGroup>
+  
+    <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))\Artifacts.props" Condition="'$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))' != '' " />
+    
+    <ItemGroup>
+        <!--<PackageReference Include="Apache.Thrift.NET" Version="$(APACHE_THRIFT_VERSION)" />
+        <PackageReference Include="PlatformApi" Version="$(PLATFORMAPI_VERSION)" />
+        <PackageReference Include="Microsoft.Data.Analysis" Version="0.5.0" />
+        <PackageReference Include="Apache.Thrift.NET" Version="$(APACHE_THRIFT_VERSION)" />
+        <PackageReference Include="PlatformApi" Version="$(PLATFORMAPI_VERSION)" />
+        <PackageReference Include="native.PostgreSql.NET" Version="$(POSTGRESQL_VERSION)" />
+        <PackageReference Include="Microsoft.Data.Analysis" Version="0.5.0" />
+        <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
+        <PackageReference Include="System.ServiceModel.Primitives" Version="4.8.0" />-->
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Remove="PostgreSql.NET.Test.csproj.DotSettings" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\PostgreSql.NET\PostgreSql.NET.csproj" />
+    </ItemGroup>
+  
+</Project>
