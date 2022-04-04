@@ -6,8 +6,7 @@
     <authors>Timothy R. McNealy</authors>
     <owners>Timothy R. McNealy</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">MIT</license>
-    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <license type="expression">BSD-3-Clause</license>
     <icon>elephant.png</icon>
     <projectUrl>https://github.com/trmcnealy/PostgreSql.NET</projectUrl>
     <description>PostgreSql .NET</description>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>PostgreSql.NET</id>
+    <version>13.6.0</version>
+    <authors>Timothy R. McNealy</authors>
+    <owners>Timothy R. McNealy</owners>
+      <license type="expression">BSD-3-Clause</license>
+    <projectUrl>https://github.com/trmcnealy/PostgreSql.NET</projectUrl>
+    <repository type="git" url="https://github.com/trmcnealy/PostgreSql.NET.git"/>
+    <icon>nindra.png</icon>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PostgreSql .NET</description>
+    <releaseNotes></releaseNotes>
+    <copyright>© Timothy R. McNealy</copyright>
+    <tags></tags>
+      <dependencies>
+          <group targetFramework="net6.0">
+              <dependency id="PlatformApi"
+                          version="3.0.0"/>
+              <dependency id="native.PostgreSql.NET"
+                          version="13.6.0"/>
+              <dependency id="Microsoft.Data.Analysis"
+                          version="0.19.0"/>
+              <dependency id="System.Runtime.Serialization.Primitives"
+                          version="4.3.0"/>
+              <dependency id="System.ServiceModel.Primitives"
+                          version="4.9.0"/>
+          </group>
+      </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\TFS_Sources\EngineeringTools\Web\trmcnealy.github.io\Assets\nindra.png"
+          target=""/>
+
+    <file src="bin\Release\PostgreSql.NET.pdb"
+          target="lib\net6.0"/>
+
+    <file src="bin\Release\PostgreSql.NET.dll"
+          target="lib\net6.0"/>
+
+
+    <file src="docs/libpq.html" target="docs\" />
+    <file src="docs/libpq-async.html" target="docs\" />
+    <file src="docs/libpq-build.html" target="docs\" />
+    <file src="docs/libpq-cancel.html" target="docs\" />
+    <file src="docs/libpq-connect.html" target="docs\" />
+    <file src="docs/libpq-control.html" target="docs\" />
+    <file src="docs/libpq-copy.html" target="docs\" />
+    <file src="docs/libpq-envars.html" target="docs\" />
+    <file src="docs/libpq-events.html" target="docs\" />
+    <file src="docs/libpq-example.html" target="docs\" />
+    <file src="docs/libpq-exec.html" target="docs\" />
+    <file src="docs/libpq-fastpath.html" target="docs\" />
+    <file src="docs/libpq-ldap.html" target="docs\" />
+    <file src="docs/libpq-misc.html" target="docs\" />
+    <file src="docs/libpq-notice-processing.html" target="docs\" />
+    <file src="docs/libpq-notify.html" target="docs\" />
+    <file src="docs/libpq-pgpass.html" target="docs\" />
+    <file src="docs/libpq-pgservice.html" target="docs\" />
+    <file src="docs/libpq-single-row-mode.html" target="docs\" />
+    <file src="docs/libpq-ssl.html" target="docs\" />
+    <file src="docs/libpq-status.html" target="docs\" />
+    <file src="docs/libpq-threading.html" target="docs\" />
+
+  </files>
+</package>

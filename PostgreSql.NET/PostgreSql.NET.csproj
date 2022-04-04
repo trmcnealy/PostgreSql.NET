@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <Import Project="$([MSBuild]::GetPathOfFileAbove(GlobalVersioning.props))" />
+    <!--<Import Project="$([MSBuild]::GetPathOfFileAbove(GlobalVersioning.props))" />-->
 
     <PropertyGroup>
         <LangVersion>10.0</LangVersion>
         <Nullable>enable</Nullable>
-        <Version>$(POSTGRESQL_VERSION)</Version>
+        <Version>13.6.0</Version>
         <TargetFramework>net6.0</TargetFramework>
         <RootNamespace>PostgreSql</RootNamespace>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -26,10 +26,13 @@
         <IncludeNativeTypeNameAttribute>true</IncludeNativeTypeNameAttribute>
     </PropertyGroup>
 
-    <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))\Artifacts.props" Condition="'$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))' != '' " />
+    <!--<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))\Artifacts.props" Condition="'$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))' != '' " />-->
 
     <PropertyGroup>
-        <NuspecFile>PostgreSql.NET.nuspec</NuspecFile> 
+        <GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">False</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">True</GeneratePackageOnBuild>
+        <NuspecFile Condition="'$(Configuration)'=='Debug'">PostgreSql.NET.Debug.nuspec</NuspecFile> 
+        <NuspecFile Condition="'$(Configuration)'=='Release'">PostgreSql.NET.Release.nuspec</NuspecFile>   
         <NuspecProperties>$(NUGET_PROPERTIES)</NuspecProperties>
         <!--<GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">false</GeneratePackageOnBuild>
         <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>-->
@@ -51,20 +54,21 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-        <None Include="PostgreSql.NET.nuspec" />
         <None Include="PostgreSql\DbConnection.cs" />
         <None Include="PostgreSql\v12.5\**\*.cs" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Apache.Thrift.NET" Version="$(APACHE_THRIFT_VERSION)" />
-        <PackageReference Include="PlatformApi" Version="$(PLATFORMAPI_VERSION)" />
+        <!--<PackageReference Include="Apache.Thrift.NET" Version="$(APACHE_THRIFT_VERSION)" />
         <PackageReference Include="native.PostgreSql.NET" Version="$(POSTGRESQL_VERSION)" />
+        <PackageReference Include="PlatformApi" Version="$(PLATFORMAPI_VERSION)" />-->
+        <PackageReference Include="NativeStrings" Version="1.0.0" />
+        <PackageReference Include="native.PostgreSql.NET" Version="13.6.0" />
+        <PackageReference Include="PlatformApi" Version="3.0.0" />
         <PackageReference Include="Microsoft.Data.Analysis" Version="0.19.0" />
         <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
         <PackageReference Include="System.ServiceModel.Primitives" Version="4.9.0" />
         
-        <PackageReference Include="NativeStrings" Version="1.0.0" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
@@ -72,7 +76,7 @@
     </Target>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-      <Exec Command="rd /s /q C:\Users\trmcnealy\.nuget\packages\native.postgresql.net" />
+      <Exec Command="rd /s /q C:\Users\trmcnealy\.nuget\packages\native.postgresql.net &amp; dotnet restore" />
     </Target>
 
 </Project>

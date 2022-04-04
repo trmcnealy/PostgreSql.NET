@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PostgreSql.NET.Test": {
+      "commandName": "Project",
+      "workingDirectory": "$(TargetDir)",
+      "hotReloadEnabled": false,
+      "nativeDebugging": true
+    }
+  }
+}

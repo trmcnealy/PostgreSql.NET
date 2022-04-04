@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgreSql.NET", "PostgreSql.NET\PostgreSql.NET.csproj", "{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgreSql.NET.Test", "PostgreSql.NET.Test\PostgreSql.NET.Test.csproj", "{EA5A85BA-19E5-47D0-8628-F907DBC60D46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "native.PostgreSql.NET", "native.PostgreSql.NET", "{57487210-87B6-4BD6-A493-B2386DD5533F}"
+	ProjectSection(SolutionItems) = preProject
+		native.PostgreSql.NET\elephant.png = native.PostgreSql.NET\elephant.png
+		native.PostgreSql.NET\libpq.def = native.PostgreSql.NET\libpq.def
+		native.PostgreSql.NET\libpq.dll = native.PostgreSql.NET\libpq.dll
+		native.PostgreSql.NET\native.PostgreSql.NET.nuspec = native.PostgreSql.NET\native.PostgreSql.NET.nuspec
+		native.PostgreSql.NET\pack.cmd = native.PostgreSql.NET\pack.cmd
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Mixed|Any CPU = Mixed|Any CPU
+		Mixed|x64 = Mixed|x64
+		Mixed|x86 = Mixed|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Debug|x64.ActiveCfg = Debug|x64
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Debug|x64.Build.0 = Debug|x64
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Debug|x86.Build.0 = Debug|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Mixed|Any CPU.ActiveCfg = Mixed|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Mixed|Any CPU.Build.0 = Mixed|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Mixed|x64.ActiveCfg = Mixed|x64
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Mixed|x64.Build.0 = Mixed|x64
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Mixed|x86.ActiveCfg = Mixed|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Mixed|x86.Build.0 = Mixed|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Release|x64.ActiveCfg = Release|x64
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Release|x64.Build.0 = Release|x64
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Release|x86.ActiveCfg = Release|Any CPU
+		{BC5EAAC4-D1F5-4BA7-B78F-CFE3CAE764D6}.Release|x86.Build.0 = Release|Any CPU
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Debug|x64.ActiveCfg = Debug|x64
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Debug|x64.Build.0 = Debug|x64
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Debug|x86.ActiveCfg = Debug|x86
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Debug|x86.Build.0 = Debug|x86
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Mixed|Any CPU.ActiveCfg = Mixed|Any CPU
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Mixed|Any CPU.Build.0 = Mixed|Any CPU
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Mixed|x64.ActiveCfg = Mixed|x64
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Mixed|x64.Build.0 = Mixed|x64
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Mixed|x86.ActiveCfg = Mixed|x86
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Mixed|x86.Build.0 = Mixed|x86
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Release|x64.ActiveCfg = Release|x64
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Release|x64.Build.0 = Release|x64
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Release|x86.ActiveCfg = Release|x86
+		{EA5A85BA-19E5-47D0-8628-F907DBC60D46}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8139CBB1-5253-465C-A2D8-AA9875087ED7}
+	EndGlobalSection
+EndGlobal

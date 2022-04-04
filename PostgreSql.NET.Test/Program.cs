@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Globalization;
 
 using Microsoft.Data.Analysis;
 
@@ -25,33 +28,34 @@ namespace PostgreSql.NET.Test
             const string default_passwd = "dbAccess";
             const string default_dbname = "OilGas";
 
+
             string connectionStr = connectionString(default_host, default_port, default_user, default_passwd, default_dbname);
 
-            MultiByteString mbString = new(connectionString(default_host, default_port, default_user, default_passwd, default_dbname));
+            utf8cstring mbString = new(connectionString(default_host, default_port, default_user, default_passwd, default_dbname));
 
-            pg_conn conn = PQconnectdb(mbString.GetPointer());
+            pg_conn conn = PQconnectdb(mbString);
 
             if(PQstatus(conn) == ConnStatusType.CONNECTION_BAD)
             {
-                throw new Exception(MultiByteString.GetString(PQerrorMessage(conn)));
+                throw new Exception(PQerrorMessage(conn).ToString());
             }
 
-            MultiByteString query = new("SELECT * \nFROM \"WellListView\";");
+            utf8cstring query = new("SELECT \"Id\", \"ClusterPerTreatmentCount\", \"EndDate\", \"LateralLength\", \"MaxProppantConcentration\", \"ProppantMesh\", \"ProppantType\", \"ReservoirName\", \"StartDate\", \"TreatmentCount\", \"WellId\"\nFROM \"CompletionDetails\"\nWHERE \"WellId\" = 3397;");
 
-            pg_result res = PQexec(conn, query.GetPointer());
+            pg_result res = PQexec(conn, query);
             
             if(PQresultStatus(res) == ExecStatusType.PGRES_BAD_RESPONSE || PQresultStatus(res) == ExecStatusType.PGRES_NONFATAL_ERROR || PQresultStatus(res) == ExecStatusType.PGRES_FATAL_ERROR)
             {
-                throw new Exception(MultiByteString.GetString(PQresultErrorMessage(res)));
+                throw new Exception(PQresultErrorMessage(res).ToString());
             }
 
-            DataFrame df = ResultAsDataFrame(res);
+            DataTable df = ResultAsDataTable(res);
 
-            for(int j = 0; j < 10; j++)
+            for(int j = 0; j < df.Rows.Count; j++)
             {
                 for(int i = 0; i < df.Columns.Count; ++i)
                 {
-                    Console.Write(df[j,i]);
+                    Console.Write(df.Rows[j][i]);
                     Console.Write(" ");
                 }
                 Console.WriteLine();
@@ -63,6 +67,193 @@ namespace PostgreSql.NET.Test
             Console.WriteLine("press any key to exit.");
             Console.ReadKey();
 #endif
+        }
+       
+        
+        private const           string      DateTimeFormat         = "yyyy-MM-dd HH:mm:ss";
+        private static readonly CultureInfo DateTimeFormatProvider = CultureInfo.CurrentCulture;
+
+        public static DataTable ResultAsDataTable(pg_result results)
+        {
+            unsafe
+            {
+                pg_result res = results;
+
+                int nFields = PQnfields(res);
+                int nRows   = PQntuples(res);
+
+                string  colName;
+                OidKind col_type;
+                bool    is_null;
+
+                DataTable dt = new();
+
+                for(int i = 0; i < nFields; ++i)
+                {
+                    colName  = MultiByteString.GetString(PQfname(res, i));
+                    col_type = OidTypes[PQftype(res, i)];
+
+                    switch(col_type)
+                    {
+                        case OidKind.BOOLOID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(bool)));
+
+                            break;
+                        }
+                        case OidKind.BYTEAOID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(sbyte)));
+
+                            break;
+                        }
+                        case OidKind.INT2OID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(short)));
+
+                            break;
+                        }
+                        case OidKind.INT4OID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(int)));
+
+                            break;
+                        }
+                        case OidKind.INT8OID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(long)));
+
+                            break;
+                        }
+                        case OidKind.FLOAT4OID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(float)));
+
+                            break;
+                        }
+                        case OidKind.FLOAT8OID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(double)));
+
+                            break;
+                        }
+                        case OidKind.CHAROID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(char)));
+
+                            break;
+                        }
+                        case OidKind.VARCHAROID:
+                        case OidKind.TEXTOID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(string)));
+
+                            break;
+                        }
+                        case OidKind.TIMEOID:
+                        case OidKind.TIMESTAMPOID:
+                        case OidKind.DATEOID:
+                        {
+                            dt.Columns.Add(new DataColumn(colName, typeof(DateTime)));
+
+                            break;
+                        }
+                        default:
+                        {
+                            throw new NotSupportedException(col_type.ToString());
+                        }
+                    }
+                }
+
+                DataRow dataRow;
+
+                for(int j = 0; j < nRows; j++)
+                {
+                    dataRow = dt.NewRow();
+
+                    for(int i = 0; i < nFields; ++i)
+                    {
+                        col_type = OidTypes[PQftype(res, i)];
+
+                        is_null = PQgetisnull(res, j, i) != 0;
+
+                        if(is_null)
+                        {
+                            dataRow[i] = DBNull.Value;
+                            continue;
+                        }
+
+                        sbyte* newValue = PQgetvalue(res, j, i);
+
+                        switch(col_type)
+                        {
+                            case OidKind.BOOLOID:
+                            {
+                                dataRow[i] = PQBinaryReader.ReadBoolean(newValue);
+                                break;
+                            }
+                            case OidKind.BYTEAOID:
+                            {
+                                dataRow[i] = (PQBinaryReader.ReadSByte(newValue));
+                                break;
+                            }
+                            case OidKind.INT2OID:
+                            {
+                                dataRow[i] = (PQBinaryReader.ReadInt16(newValue));
+                                break;
+                            }
+                            case OidKind.INT4OID:
+                            {
+                                dataRow[i] = (PQBinaryReader.ReadInt32(newValue));
+                                break;
+                            }
+                            case OidKind.INT8OID:
+                            {
+                                dataRow[i] = (PQBinaryReader.ReadInt64(newValue));
+                                break;
+                            }
+                            case OidKind.FLOAT4OID:
+                            {
+                                dataRow[i] = (PQBinaryReader.ReadSingle(newValue));
+                                break;
+                            }
+                            case OidKind.FLOAT8OID:
+                            {
+                                dataRow[i] = (PQBinaryReader.ReadDouble(newValue));
+                                break;
+                            }
+                            case OidKind.CHAROID:
+                            {
+                                dataRow[i] = (PQBinaryReader.ReadChar(newValue));
+                                break;
+                            }
+                            case OidKind.VARCHAROID:
+                            case OidKind.TEXTOID:
+                            {
+                                dataRow[i] = PQBinaryReader.ReadString(newValue).ToString();
+                                break;
+                            }
+                            case OidKind.TIMEOID:
+                            case OidKind.TIMESTAMPOID:
+                            case OidKind.DATEOID:
+                            {
+                                dataRow[i] = DateTime.ParseExact(PQBinaryReader.ReadString(newValue).ToString(), DateTimeFormat, DateTimeFormatProvider);
+                                break;
+                            }
+                            default:
+                            {
+                                throw new NotSupportedException(col_type.ToString());
+                            }
+                        }
+                    }
+
+                    dt.Rows.Add(dataRow);
+                }
+
+                dt.AcceptChanges();
+
+                return dt;
+            }
         }
 
         
