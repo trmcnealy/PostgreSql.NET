@@ -18,7 +18,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadSByte(new ReadOnlySpan<byte>((void*)bytes, 1));
+            return ReadSByte(new ReadOnlySpan<byte>((void*)bytes, sizeof(sbyte)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static bool? ReadBoolean(sbyte* bytes)
@@ -28,7 +28,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadBoolean(new ReadOnlySpan<byte>((void*)bytes, 1));
+            return ReadBoolean(new ReadOnlySpan<byte>((void*)bytes, sizeof(bool)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static char? ReadChar(sbyte* bytes)
@@ -38,7 +38,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadChar(new ReadOnlySpan<byte>((void*)bytes, 2));
+            return ReadChar(new ReadOnlySpan<byte>((void*)bytes, sizeof(char)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static short? ReadInt16(sbyte* bytes)
@@ -48,7 +48,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadInt16(new ReadOnlySpan<byte>((void*)bytes, 2));
+            return ReadInt16(new ReadOnlySpan<byte>((void*)bytes, sizeof(short)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static ushort? ReadUInt16(sbyte* bytes)
@@ -58,7 +58,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadUInt16(new ReadOnlySpan<byte>((void*)bytes, 2));
+            return ReadUInt16(new ReadOnlySpan<byte>((void*)bytes, sizeof(ushort)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static int? ReadInt32(sbyte* bytes)
@@ -68,7 +68,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadInt32(new ReadOnlySpan<byte>((void*)bytes, 4));
+            return ReadInt32(new ReadOnlySpan<byte>((void*)bytes, sizeof(int)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static uint? ReadUInt32(sbyte* bytes)
@@ -78,7 +78,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadUInt32(new ReadOnlySpan<byte>((void*)bytes, 4));
+            return ReadUInt32(new ReadOnlySpan<byte>((void*)bytes, sizeof(uint)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static long? ReadInt64(sbyte* bytes)
@@ -88,7 +88,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadInt64(new ReadOnlySpan<byte>((void*)bytes, 8));
+            return ReadInt64(new ReadOnlySpan<byte>((void*)bytes, sizeof(long)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static ulong? ReadUInt64(sbyte* bytes)
@@ -98,7 +98,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadUInt64(new ReadOnlySpan<byte>((void*)bytes, 8));
+            return ReadUInt64(new ReadOnlySpan<byte>((void*)bytes, sizeof(ulong)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static Half? ReadHalf(sbyte* bytes)
@@ -108,7 +108,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadHalf(new ReadOnlySpan<byte>((void*)bytes, 2));
+            return ReadHalf(new ReadOnlySpan<byte>((void*)bytes, sizeof(Half)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static unsafe float? ReadSingle(sbyte* bytes)
@@ -118,7 +118,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadSingle(new ReadOnlySpan<byte>((void*)bytes, 4));
+            return ReadSingle(new ReadOnlySpan<byte>((void*)bytes, sizeof(float)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static unsafe double? ReadDouble(sbyte* bytes)
@@ -128,7 +128,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadDouble(new ReadOnlySpan<byte>((void*)bytes, 8));
+            return ReadDouble(new ReadOnlySpan<byte>((void*)bytes, sizeof(double)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static decimal? ReadDecimal(sbyte* bytes)
@@ -138,7 +138,7 @@ namespace PostgreSql
                 return null;
             }
 
-            return ReadDecimal(new ReadOnlySpan<byte>((void*)bytes, 16));
+            return ReadDecimal(new ReadOnlySpan<byte>((void*)bytes, sizeof(decimal)));
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static utf8string? ReadString(sbyte* bytes)
